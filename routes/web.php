@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,8 @@ Route::get('/optional/{angka?}', function($nomor='21'){
 });
 
 Route::get('home', [HomeController::class, 'home']);
+
+Route::resource('photos', PhotoController::class);
 
 // Route::get('/user/profile', function(){
 //     //
