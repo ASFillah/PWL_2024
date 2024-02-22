@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('hello', [WelcomeController::class, 'hello']);
 
 // Route::get('/test', [TestController::class, 'test']);
 
@@ -45,11 +46,19 @@ Route::get('/posts/{post}/comments/{comment}', function
     return 'Post ke-'.$postId." Komentar ke-: ".$commentId;
 });
 
-Route::get('/articles/{id}', function
-($id){
-    return 'Halaman Artikel dengam ID '.$id;
-});
+Route::get('articles', [ArticleController::class, 'articles']);
 
 Route::get('/optional/{angka?}', function($nomor='21'){
     return 'Nomor: '.$nomor;
 });
+
+Route::get('home', [HomeController::class, 'home']);
+
+// Route::get('/user/profile', function(){
+//     //
+// }) -> name('profile');
+
+// Route::get(
+//     '/user/profile',
+//     [UserProfileController::class, 'show']
+// )
