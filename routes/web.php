@@ -49,3 +49,7 @@ Route::get('/articles/{id}', function
 ($id){
     return 'Halaman Artikel dengam ID '.$id;
 });
+
+Route::get('/optional/{angka?}', function($nomor='21'){
+    return 'Nomor: '.$nomor;
+});
