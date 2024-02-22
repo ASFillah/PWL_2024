@@ -57,9 +57,7 @@ Route::get('home', [HomeController::class, 'home']);
 
 Route::resource('photos', PhotoController::class);
 
-Route::get('/greeting', function(){
-    return view('hello', ['name' => 'Fillah']);
-});
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 // Route::get('/user/profile', function(){
 //     //
 // }) -> name('profile');
